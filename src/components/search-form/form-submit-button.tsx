@@ -37,12 +37,14 @@ import {
 export const FormSubmitButton = () => {
   const setDownloadUrl = useSetAtom(downloadUrlAtom);
   const [status, setStatus] = useAtom(statusAtom);
+  const [customName, setCustomName] = useAtom(customNameAtom);
+
 
   const file = useAtomValue(fileAtom);
   const keywords = useAtomValue(keywordAtom);
 
   const nameOption = useAtomValue(nameOptionAtom);
-  const customName = useAtomValue(customNameAtom);
+  // const customName = useAtomValue(customNameAtom); >> DEPRECATED
 
   const lengthOption = useAtomValue(lengthOptionAtom);
   const customLength = useAtomValue(customLengthAtom);
@@ -93,24 +95,6 @@ export const FormSubmitButton = () => {
       setStatus({ type: "loading" });
       setDownloadUrl(undefined);
 
-      // Create and Get S3 Bucket PUT URL
-      const fileName = createFileName(file!.name, nameOption, customName!);
-      const data = new FormData();
-      data.set("file-name", fileName);
-
-      const awsPutUrlFetchResponseJSON = await fetch("/api/s3-put-url-create", {
-        method: "POST",
-        body: data,
-      }).then((res) => res.json());
-
-      if (!awsPutUrlFetchResponseJSON.success) {
-        setStatus({
-          type: "error",
-          message: "System not working as usual.",
-        });
-        return;
-      }
-
       // Filter file with options.
       let resultFile;
 
@@ -149,17 +133,10 @@ export const FormSubmitButton = () => {
       const filteredFileBuffer = new Blob([resultFile], {
         type: "text/csv",
       });
-
-      // Send File to S3
-      const signedUrl = awsPutUrlFetchResponseJSON.signedUrl;
-      await fetch(signedUrl, {
-        method: "PUT",
-        body: filteredFileBuffer,
-      });
-
-      // When Fetch is DONE! Set URL into the state.
-      const url = `https://file-filter-local-bucket.s3.eu-central-1.amazonaws.com/${fileName}`;
+      const url = window.URL.createObjectURL(filteredFileBuffer);
+      setCustomName(createFileName(file!.name, nameOption, customName!))
       setDownloadUrl(url);
+
       setStatus({ type: "success" });
     } catch (e: any) {
       setStatus({

@@ -1,10 +1,11 @@
-import { downloadUrlAtom, statusAtom } from "@/atoms/search-form-atoms";
+import {customNameAtom, downloadUrlAtom, statusAtom} from "@/atoms/search-form-atoms";
 import { useAtomValue } from "jotai";
 import { Button } from "@/components/ui/button";
 
 export const DownloadButton = () => {
   const status = useAtomValue(statusAtom);
   const downloadUrl = useAtomValue(downloadUrlAtom);
+  const fileName = useAtomValue(customNameAtom)
 
   return (
     <Button
@@ -15,7 +16,7 @@ export const DownloadButton = () => {
           : "cursor-no-drop border border-zinc-950/10 bg-zinc-300 text-zinc-600 opacity-75"
       }`}
     >
-      <a href={downloadUrl} target="_blank">
+      <a href={downloadUrl} download={fileName} target="_blank">
         Download Filtered File
       </a>
     </Button>

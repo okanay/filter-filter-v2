@@ -15,7 +15,8 @@ export const createFileName = (
       return name;
     }
     case "custom-with-file-name": {
-      return `${customName}-${name}.${type}`;
+      const cleanName = name.split(".").slice(0, -1).join(".");
+      return `${customName}-${cleanName}.${type}`;
     }
     case "custom": {
       return `${customName}.${type}`;

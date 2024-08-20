@@ -28,5 +28,5 @@ http://localhost:3000/
 
 `.env` requirement `blob.`
 ```bash
-BLOB_READ_WRITE_TOKEN=****
+NO ENVERIONMENT VARIABLES REQUIRED CHILL OUT
 ```
