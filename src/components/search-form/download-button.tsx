@@ -10,7 +10,7 @@ export const DownloadButton = () => {
   return (
     <Button
       asChild={true}
-      className={`${
+      className={`-my-2 ${
         status.type === "success"
           ? "border border-lime-950/10 bg-lime-400 text-lime-950 shadow shadow-lime-950/10"
           : "cursor-no-drop border border-zinc-950/10 bg-zinc-300 text-zinc-600 opacity-75"
