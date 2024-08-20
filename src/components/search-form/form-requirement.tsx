@@ -29,7 +29,7 @@ export const FormRequirement = () => {
           <DatetimeInput />
           <FormSubmitButton />
         </form>
-          <DownloadButton />
+        <DownloadButton />
         <StatusMessages />
       </div>
     </div>

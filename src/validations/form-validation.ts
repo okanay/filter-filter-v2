@@ -84,7 +84,7 @@ const spaceValuesSchema = z.object({
     .max(10, { message: "Custom space limit should not exceed 10." }),
 });
 
-const keywordsSchema = z.string().min(4, { message: "Please add some keywords." })
+const keywordsSchema = z.string().min(3, { message: "Please add some keywords." })
 
 export const formValidation = z
   .object({
