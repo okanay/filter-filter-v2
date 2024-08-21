@@ -1,11 +1,10 @@
 // prettier-ignore
-import {dateTimeOptionAtom, dateTimeValueAtom,} from "../../../atoms/filter-form-atoms";
+import {dateTimeOptionAtom, dateTimeValueAtom,} from "@/atoms/filter-form";
 import { useSetAtom } from "jotai/index";
 import { useAtomValue } from "jotai";
 
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
-import { Separator } from "@/components/ui/separator";
 
 export const DatetimeInput = () => {
   const dateTimeOption = useAtomValue(dateTimeOptionAtom);

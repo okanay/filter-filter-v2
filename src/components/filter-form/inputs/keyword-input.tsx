@@ -9,8 +9,7 @@ import {
   filterOptionAtom,
   keywordAtom,
   keywordsListAtom,
-} from "../../../atoms/filter-form-atoms";
-import { Separator } from "@/components/ui/separator";
+} from "@/atoms/filter-form";
 import { useAtomValue } from "jotai";
 
 export const KeywordInput = () => {

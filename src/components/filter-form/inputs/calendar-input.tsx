@@ -6,11 +6,17 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Calendar } from "@/components/ui/calendar";
 import { Label } from "@/components/ui/label";
-// prettier-ignore
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
 import { useAtomValue, useAtom } from "jotai";
-// prettier-ignore
-import { dateValueAtom, dateOptionAtom, dateValuesAtom} from "../../../atoms/filter-form-atoms";
+import {
+  dateValueAtom,
+  dateOptionAtom,
+  dateValuesAtom,
+} from "@/atoms/filter-form";
 import { Separator } from "@/components/ui/separator";
 
 export function CalendarInput() {

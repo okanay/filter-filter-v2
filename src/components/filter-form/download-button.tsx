@@ -2,7 +2,7 @@ import {
   customNameAtom,
   downloadUrlAtom,
   statusAtom,
-} from "@/atoms/filter-form-atoms";
+} from "@/atoms/filter-form";
 import { Button } from "@/components/ui/button";
 import { useAtom } from "jotai";
 

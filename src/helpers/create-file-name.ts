@@ -1,4 +1,4 @@
-import { TNameOption } from "../atoms/filter-form-atoms";
+import { TNameOption } from "@/atoms/filter-form";
 
 export const createFileName = (
   name: string,

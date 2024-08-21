@@ -1,5 +1,5 @@
 import { useAtomValue } from "jotai/index";
-import { statusAtom } from "../../../atoms/filter-form-atoms";
+import { statusAtom } from "@/atoms/filter-form";
 
 export const StatusMessages = () => {
   const status = useAtomValue(statusAtom);

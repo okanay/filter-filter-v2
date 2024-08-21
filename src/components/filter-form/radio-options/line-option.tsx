@@ -1,7 +1,7 @@
 import { InputGroup } from "@/components/filter-form/input-group";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { lineOptionAtom } from "../../../atoms/filter-form-atoms";
+import { lineOptionAtom } from "@/atoms/filter-form";
 import { useAtom } from "jotai/index";
 import { OptionHeaderIcon } from "@/components/ui/option-header-icon";
 import { OptionHeader } from "@/components/ui/option-header";

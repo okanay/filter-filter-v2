@@ -1,6 +1,4 @@
 import { z } from "zod";
-import { useAtom } from "jotai/index";
-import { dateValuesAtom } from "../atoms/filter-form-atoms";
 
 const MAX_FILE_SIZE = 100 * 1024 * 1024;
 const ACCEPTED_IMAGE_TYPES = ["log", "csv"];

@@ -32,7 +32,7 @@ import {
   TLineOption,
   TSpaceOption,
   TSpaceValues,
-} from "@/atoms/filter-form-atoms";
+} from "@/atoms/filter-form";
 
 export const FormSubmitButton = () => {
   const setDownloadUrl = useSetAtom(downloadUrlAtom);

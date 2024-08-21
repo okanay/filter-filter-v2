@@ -1,7 +1,4 @@
-import {
-  filterOptionAtom,
-  keywordsListAtom,
-} from "../../atoms/filter-form-atoms";
+import { filterOptionAtom, keywordsListAtom } from "@/atoms/filter-form";
 import { useAtomValue } from "jotai";
 import { nanoid } from "nanoid";
 import { Badge } from "@/components/ui/badge";
