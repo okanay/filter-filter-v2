@@ -5,7 +5,7 @@ export const FixedLinkGroup = () => {
     <div className={"fixed right-8 top-4 sm:top-8"}>
       <div className={"flex flex-col items-end gap-2"}>
         <Link
-          href={"https://github.com/okanay/file-filterer"}
+          href={"https://github.com/okanay/filter-filter-v2"}
           target={"_blank"}
           className="w-fit rounded-lg border border-zinc-300 bg-zinc-100 px-4 py-2 shadow shadow-zinc-950/10"
         >
