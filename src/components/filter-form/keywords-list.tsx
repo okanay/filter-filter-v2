@@ -1,4 +1,7 @@
-import { filterOptionAtom, keywordsListAtom } from "@/atoms/search-form-atoms";
+import {
+  filterOptionAtom,
+  keywordsListAtom,
+} from "../../atoms/filter-form-atoms";
 import { useAtomValue } from "jotai";
 import { nanoid } from "nanoid";
 import { Badge } from "@/components/ui/badge";
@@ -22,7 +25,7 @@ export const KeywordsList: TProps = ({ removeHandle }) => {
           className={cn(
             "cursor-pointer py-1.5 transition-all duration-300 hover:scale-90 hover:bg-red-400",
             filterType === "match all" &&
-              "border border-amber-950/10 bg-amber-500 shadow shadow-amber-950/10"
+              "border border-amber-950/10 bg-amber-500 shadow shadow-amber-950/10",
           )}
           key={nanoid()}
           onClick={() => {

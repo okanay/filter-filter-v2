@@ -1,5 +1,5 @@
 // prettier-ignore
-import {dateTimeOptionAtom, dateTimeValueAtom,} from "@/atoms/search-form-atoms";
+import {dateTimeOptionAtom, dateTimeValueAtom,} from "../../../atoms/filter-form-atoms";
 import { useSetAtom } from "jotai/index";
 import { useAtomValue } from "jotai";
 

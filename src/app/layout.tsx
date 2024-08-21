@@ -6,8 +6,21 @@ import Providers from "@/providers/provider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Log File Filterer.",
-  description: "This project belongs to Spyke Games.",
+  title: "Filter Your Log Files",
+  description: "Filter your log files with ease using this tool",
+  creator: "Okan Ay",
+  applicationName: "File Filterer",
+  keywords: ["filter", "log", "files", "tool"],
+  authors: [
+    {
+      name: "Okan Ay",
+      url: "https://okanay.com/",
+    },
+    {
+      name: "Spyke Games",
+      url: "https://spykegames.com/",
+    },
+  ],
 };
 
 export default function RootLayout({

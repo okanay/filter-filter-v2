@@ -4,7 +4,7 @@ import { useAtom, useSetAtom } from "jotai/index";
 import { keywordsSplitWithRegex } from "@/helpers/keyword-regex";
 import { parseLogDate } from "@/helpers/parse-date-toString";
 import { createFileName } from "@/helpers/create-file-name";
-import { formValidation } from "@/validations/form-validation";
+import { filterForm } from "@/validations/filter-form";
 import {
   customLengthAtom,
   customNameAtom,
@@ -32,19 +32,17 @@ import {
   TLineOption,
   TSpaceOption,
   TSpaceValues,
-} from "@/atoms/search-form-atoms";
+} from "@/atoms/filter-form-atoms";
 
 export const FormSubmitButton = () => {
   const setDownloadUrl = useSetAtom(downloadUrlAtom);
   const [status, setStatus] = useAtom(statusAtom);
   const [customName, setCustomName] = useAtom(customNameAtom);
 
-
   const file = useAtomValue(fileAtom);
   const keywords = useAtomValue(keywordAtom);
 
   const nameOption = useAtomValue(nameOptionAtom);
-  // const customName = useAtomValue(customNameAtom); >> DEPRECATED
 
   const lengthOption = useAtomValue(lengthOptionAtom);
   const customLength = useAtomValue(customLengthAtom);
@@ -64,7 +62,7 @@ export const FormSubmitButton = () => {
 
   const handleFormSubmit = async () => {
     // Form Validation Here
-    const validation = formValidation.safeParse({
+    const validation = filterForm.safeParse({
       file,
       keywords,
       nameOption,
@@ -95,27 +93,35 @@ export const FormSubmitButton = () => {
       setStatus({ type: "loading" });
       setDownloadUrl(undefined);
 
-      // Filter file with options.
+      // Initialize Result File.
       let resultFile;
 
-      const bytes = await file!.arrayBuffer();
+      // Convert validation file to buffer.
+      const bytes = await validation.data.file.arrayBuffer();
+      // Convert bytes to buffer for string conversion.
       const buffer = Buffer.from(bytes);
+      // Convert buffer to string array.
       const fileToStringArray = buffer.toString("utf8").split("\n");
 
+      // Filter File With Keywords.
       resultFile = FilterWithKeywords(
         fileToStringArray,
         keywords as string,
-        filterOption
+        filterOption,
       );
 
+      // Filter File With Date.
       resultFile = FilterWithDate(
         resultFile,
         dateOption,
         customDate as Date,
-        customDates as TDateValues
+        customDates as TDateValues,
       );
 
+      // Filter File With Time.
       resultFile = FilterWithTime(resultFile, dateTimeValue, dateTimeOption);
+
+      // Filter File With Length.
       resultFile = FilterWithLength(resultFile, lengthOption, customLength!);
 
       if (resultFile.length === 0) {
@@ -126,17 +132,24 @@ export const FormSubmitButton = () => {
         return;
       }
 
+      // TODO: IMPROVE LINE OPTION TO ORIGINAL LOG FILE LINE.
+      // Add Line Option.
       resultFile = LineOption(resultFile, lineOption);
 
+      // Add Space Option.
       resultFile = SpaceOption(resultFile, spaceOption, spaceValues!);
 
+      // Convert Result File to Buffer.
       const filteredFileBuffer = new Blob([resultFile], {
         type: "text/csv",
       });
-      const url = window.URL.createObjectURL(filteredFileBuffer);
-      setCustomName(createFileName(file!.name, nameOption, customName!))
-      setDownloadUrl(url);
 
+      // Create Download Url.
+      const url = window.URL.createObjectURL(filteredFileBuffer);
+
+      // Set Custom Name and Download Url.
+      setCustomName(createFileName(file!.name, nameOption, customName!));
+      setDownloadUrl(url);
       setStatus({ type: "success" });
     } catch (e: any) {
       setStatus({
@@ -160,7 +173,7 @@ export const FormSubmitButton = () => {
 function FilterWithLength(
   resultFile: string[],
   lengthOption: TLengthOption,
-  customLength: number
+  customLength: number,
 ) {
   switch (lengthOption) {
     case "all":
@@ -183,7 +196,7 @@ function FilterWithLength(
 function FilterWithKeywords(
   fileToStringArray: string[],
   keywords: string,
-  filterOption: TFilterOption
+  filterOption: TFilterOption,
 ) {
   return fileToStringArray.filter((item) => {
     if (filterOption === "match one") {
@@ -209,7 +222,7 @@ function FilterWithDate(
   fileToStringArray: string[],
   dateOption: TDateOption,
   customDate: Date,
-  customDates: TDateValues
+  customDates: TDateValues,
 ) {
   const customDateFormat = new Date(customDate!);
   const customDay = customDateFormat.getDate();
@@ -269,7 +282,7 @@ function FilterWithDate(
 function FilterWithTime(
   fileToStringArray: string[],
   dateFilterValue: TDateTimeValue,
-  dateFilterOption: TDateTimeOption
+  dateFilterOption: TDateTimeOption,
 ) {
   // prettier-ignore
   const customFrom = dateFilterValue.from.hour * 60 + dateFilterValue.from.minute;
@@ -314,7 +327,7 @@ function FilterWithTime(
 function SpaceOption(
   fileToStringArray: string[],
   spaceOption: TSpaceOption,
-  spaceValues: TSpaceValues
+  spaceValues: TSpaceValues,
 ): string {
   if (spaceOption === "default") return fileToStringArray.join("\n");
   else {
@@ -340,11 +353,11 @@ function SpaceOption(
 
 function LineOption(
   fileToStringArray: string[],
-  lineOption: TLineOption
+  lineOption: TLineOption,
 ): string[] {
   if (lineOption === "add-line") {
     return fileToStringArray.map((item, index) =>
-      item.replace(item, `<${index}> : ${item}`)
+      item.replace(item, `<${index}> : ${item}`),
     );
   }
 

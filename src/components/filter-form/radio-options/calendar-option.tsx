@@ -1,8 +1,8 @@
-import { InputGroup } from "@/components/search-form/input-group";
+import { InputGroup } from "@/components/filter-form/input-group";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { useAtom } from "jotai/index";
-import { dateOptionAtom } from "@/atoms/search-form-atoms";
+import { dateOptionAtom } from "../../../atoms/filter-form-atoms";
 import { OptionHeaderIcon } from "@/components/ui/option-header-icon";
 import { OptionHeader } from "@/components/ui/option-header";
 

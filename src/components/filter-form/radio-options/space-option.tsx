@@ -1,36 +1,36 @@
-import { InputGroup } from "@/components/search-form/input-group";
+import { InputGroup } from "@/components/filter-form/input-group";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { lineOptionAtom } from "@/atoms/search-form-atoms";
+import { spaceOptionAtom } from "../../../atoms/filter-form-atoms";
 import { useAtom } from "jotai/index";
 import { OptionHeaderIcon } from "@/components/ui/option-header-icon";
 import { OptionHeader } from "@/components/ui/option-header";
 
-export const LineOption = () => {
-  const [filterOption, setFilterOption] = useAtom(lineOptionAtom);
+export const SpaceOption = () => {
+  const [filterOption, setFilterOption] = useAtom(spaceOptionAtom);
 
   return (
     <div className={"flex-shrink-0"}>
       <InputGroup>
-        <OptionHeaderIcon name={"line"}>
-          <OptionHeader>Output Line Number.</OptionHeader>
+        <OptionHeaderIcon name={"space"}>
+          <OptionHeader>Output Space.</OptionHeader>
         </OptionHeaderIcon>
-        <RadioGroup defaultValue={filterOption}>
+        <RadioGroup name={"match-one"} defaultValue={filterOption}>
           <div className="flex items-center space-x-2">
             <RadioGroupItem
               value="default"
-              id="r1-line"
+              id="r1-space"
               onClick={() => setFilterOption("default")}
             />
-            <Label htmlFor="r1-line">Default</Label>
+            <Label htmlFor="r1-space">Default</Label>
           </div>
           <div className="flex items-center space-x-2">
             <RadioGroupItem
-              value="add-line"
-              id="r2-line"
-              onClick={() => setFilterOption("add-line")}
+              value="add-space"
+              id="r2-space"
+              onClick={() => setFilterOption("add-space")}
             />
-            <Label htmlFor="r2-line">Add Line Number</Label>
+            <Label htmlFor="r2-space">Add Space</Label>
           </div>
         </RadioGroup>
       </InputGroup>

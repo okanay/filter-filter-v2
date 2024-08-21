@@ -2,7 +2,10 @@ import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { useAtomValue } from "jotai";
 import { useSetAtom } from "jotai/index";
-import { customLengthAtom, lengthOptionAtom } from "@/atoms/search-form-atoms";
+import {
+  customLengthAtom,
+  lengthOptionAtom,
+} from "../../../atoms/filter-form-atoms";
 import { Separator } from "@/components/ui/separator";
 
 export const LengthInput = () => {

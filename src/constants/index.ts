@@ -1,2 +1,1 @@
-export const MAX_BYTE = 4.4 * 1024 * 1024;
-export const TEST: string = "GITHUB";
+export const MAX_BYTE = 100 * 1024 * 1024;

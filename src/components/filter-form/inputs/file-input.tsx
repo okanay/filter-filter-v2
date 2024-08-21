@@ -1,8 +1,8 @@
-import { InputGroup } from "@/components/search-form/input-group";
+import { InputGroup } from "@/components/filter-form/input-group";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { useSetAtom } from "jotai/index";
-import { fileAtom } from "@/atoms/search-form-atoms";
+import { fileAtom } from "../../../atoms/filter-form-atoms";
 import { Separator } from "@/components/ui/separator";
 
 export const FileInput = () => {

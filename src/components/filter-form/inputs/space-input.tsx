@@ -2,7 +2,10 @@ import { useAtom, useSetAtom } from "jotai/index";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { useAtomValue } from "jotai";
-import { spaceOptionAtom, spaceValuesAtom } from "@/atoms/search-form-atoms";
+import {
+  spaceOptionAtom,
+  spaceValuesAtom,
+} from "../../../atoms/filter-form-atoms";
 import { Separator } from "@/components/ui/separator";
 
 export const SpaceInput = () => {

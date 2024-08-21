@@ -1,6 +1,6 @@
 import { z } from "zod";
 import { useAtom } from "jotai/index";
-import { dateValuesAtom } from "@/atoms/search-form-atoms";
+import { dateValuesAtom } from "../atoms/filter-form-atoms";
 
 const MAX_FILE_SIZE = 100 * 1024 * 1024;
 const ACCEPTED_IMAGE_TYPES = ["log", "csv"];
@@ -14,7 +14,7 @@ export const fileSchema = z
   .refine(
     (file) =>
       ACCEPTED_IMAGE_TYPES.includes(file?.name.split(".").at(-1) as string),
-    `Only these type are allowed ${ACCEPTED_IMAGE_TYPES.join(", ")}.`
+    `Only these type are allowed ${ACCEPTED_IMAGE_TYPES.join(", ")}.`,
   );
 
 const dateSchema = z.date({
@@ -84,9 +84,11 @@ const spaceValuesSchema = z.object({
     .max(10, { message: "Custom space limit should not exceed 10." }),
 });
 
-const keywordsSchema = z.string().min(3, { message: "Please add some keywords." })
+const keywordsSchema = z
+  .string()
+  .min(3, { message: "Please add some keywords." });
 
-export const formValidation = z
+export const filterForm = z
   .object({
     file: fileSchema,
     keywords: z.any(),
@@ -135,7 +137,7 @@ export const formValidation = z
     //
     else if (data.dateOption === "between-two") {
       const checkDatesFrom = dateSchema.safeParse(
-        new Date(data.customDates?.from)
+        new Date(data.customDates?.from),
       );
       const checkDatesTo = dateSchema.safeParse(new Date(data.customDates?.to));
 
@@ -149,7 +151,7 @@ export const formValidation = z
     //
     else if (data.dateTimeOption === "between") {
       const checkDateValues = dateTimeBetweenSchema.safeParse(
-        data.dateTimeValue
+        data.dateTimeValue,
       );
 
       if (!checkDateValues.success) {
@@ -164,7 +166,7 @@ export const formValidation = z
     //
     else if (data.dateTimeOption === "select") {
       const checkDateValues = dateTimeSelectSchema.safeParse(
-        data.dateTimeValue
+        data.dateTimeValue,
       );
 
       if (!checkDateValues.success) {

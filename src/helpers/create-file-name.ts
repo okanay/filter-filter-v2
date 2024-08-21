@@ -1,9 +1,9 @@
-import { TNameOption } from "@/atoms/search-form-atoms";
+import { TNameOption } from "../atoms/filter-form-atoms";
 
 export const createFileName = (
   name: string,
   nameOption: TNameOption,
-  customName: string
+  customName: string,
 ) => {
   const type = name.split(".").at(-1);
 

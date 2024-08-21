@@ -26,7 +26,7 @@ Finally, open the project:
 http://localhost:3000/
 ```
 
-`.env` requirement `blob.`
+`.env` requirement
 ```bash
 NO ENVERIONMENT VARIABLES REQUIRED CHILL OUT
 ```

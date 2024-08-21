@@ -10,7 +10,7 @@ import { Label } from "@/components/ui/label";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { useAtomValue, useAtom } from "jotai";
 // prettier-ignore
-import { dateValueAtom, dateOptionAtom, dateValuesAtom} from "@/atoms/search-form-atoms";
+import { dateValueAtom, dateOptionAtom, dateValuesAtom} from "../../../atoms/filter-form-atoms";
 import { Separator } from "@/components/ui/separator";
 
 export function CalendarInput() {
@@ -40,7 +40,7 @@ const TargetDateCalendarInput = () => {
               variant={"outline"}
               className={cn(
                 "justify-start text-left font-normal",
-                !customDate && "text-muted-foreground"
+                !customDate && "text-muted-foreground",
               )}
             >
               <CalendarIcon className="mr-2 h-4 w-4" />
@@ -75,7 +75,7 @@ const BetweenDateCalendarInput = () => {
     } else {
       return `${format(customDates?.from, "PPP")} ~ ${format(
         customDates?.to,
-        "PPP"
+        "PPP",
       )}`;
     }
   };
@@ -96,7 +96,7 @@ const BetweenDateCalendarInput = () => {
               variant={"outline"}
               className={cn(
                 "justify-start text-left font-normal",
-                !customDates && "text-muted-foreground"
+                !customDates && "text-muted-foreground",
               )}
             >
               <CalendarIcon className="mr-2 h-4 w-4" />
