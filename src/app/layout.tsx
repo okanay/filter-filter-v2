@@ -16,10 +16,6 @@ export const metadata: Metadata = {
       name: "Okan Ay",
       url: "https://okanay.com/",
     },
-    {
-      name: "Spyke Games",
-      url: "https://spykegames.com/",
-    },
   ],
 };
 
