@@ -20,6 +20,7 @@ export const LineOption = () => {
             <RadioGroupItem
               value="default"
               id="r1-line"
+              checked={filterOption === "default"}
               onClick={() => setFilterOption("default")}
             />
             <Label htmlFor="r1-line">Default</Label>
@@ -28,6 +29,7 @@ export const LineOption = () => {
             <RadioGroupItem
               value="add-line"
               id="r2-line"
+              checked={filterOption === "add-line"}
               onClick={() => setFilterOption("add-line")}
             />
             <Label htmlFor="r2-line">Show</Label>

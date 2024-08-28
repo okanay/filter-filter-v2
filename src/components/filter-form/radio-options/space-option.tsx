@@ -20,6 +20,7 @@ export const SpaceOption = () => {
             <RadioGroupItem
               value="default"
               id="r1-space"
+              checked={filterOption === "default"}
               onClick={() => setFilterOption("default")}
             />
             <Label htmlFor="r1-space">Default</Label>
@@ -28,6 +29,7 @@ export const SpaceOption = () => {
             <RadioGroupItem
               value="add-space"
               id="r2-space"
+              checked={filterOption === "add-space"}
               onClick={() => setFilterOption("add-space")}
             />
             <Label htmlFor="r2-space">Set Space</Label>

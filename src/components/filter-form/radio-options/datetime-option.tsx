@@ -20,14 +20,16 @@ export const DatetimeOption = () => {
             <RadioGroupItem
               value="default"
               id="r1-date"
+              checked={filterOption === "default"}
               onClick={() => setFilterOption("default")}
             />
             <Label htmlFor="r1-date">Default</Label>
           </div>
           <div className="flex items-center space-x-2">
             <RadioGroupItem
-              value="select"
+              value="target"
               id="r2-date"
+              checked={filterOption === "target"}
               onClick={() => setFilterOption("target")}
             />
             <Label htmlFor="r2-date">Target Time</Label>
@@ -36,6 +38,7 @@ export const DatetimeOption = () => {
             <RadioGroupItem
               value="between"
               id="r3-date"
+              checked={filterOption === "between"}
               onClick={() => setFilterOption("between")}
             />
             <Label htmlFor="r3-date">Between Time</Label>

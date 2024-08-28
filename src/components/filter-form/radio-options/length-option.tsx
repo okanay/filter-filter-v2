@@ -20,6 +20,7 @@ export const LengthOption = () => {
             <RadioGroupItem
               value="all"
               id="r1-length"
+              checked={filterOption === "all"}
               onClick={() => setFilterOption("all")}
             />
             <Label htmlFor="r1-length">Default</Label>
@@ -28,6 +29,7 @@ export const LengthOption = () => {
             <RadioGroupItem
               value="find-line"
               id="r2-length"
+              checked={filterOption === "find-first"}
               onClick={() => setFilterOption("find-first")}
             />
             <Label htmlFor="r2-length">Find First</Label>
@@ -36,6 +38,7 @@ export const LengthOption = () => {
             <RadioGroupItem
               value="find-last"
               id="r3-length"
+              checked={filterOption === "find-last"}
               onClick={() => setFilterOption("find-last")}
             />
             <Label htmlFor="r3-length">Find Last</Label>
@@ -44,6 +47,7 @@ export const LengthOption = () => {
             <RadioGroupItem
               value="first-custom"
               id="r4-length"
+              checked={filterOption === "first-custom"}
               onClick={() => setFilterOption("first-custom")}
             />
             <Label htmlFor="r4-length">First Custom</Label>
@@ -52,6 +56,7 @@ export const LengthOption = () => {
             <RadioGroupItem
               value="last-custom"
               id="r5-length"
+              checked={filterOption === "last-custom"}
               onClick={() => setFilterOption("last-custom")}
             />
             <Label htmlFor="r5-length">Last Custom</Label>

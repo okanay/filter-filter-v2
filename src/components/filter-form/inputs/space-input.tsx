@@ -35,6 +35,7 @@ export const SpaceInput = () => {
             type="number"
             id="space-2-input"
             min={1}
+            value={spaceValues?.space}
             placeholder="1"
             onChange={(e) => {
               setSpaceValues((prev) => ({
@@ -56,6 +57,7 @@ export const SpaceInput = () => {
             min={1}
             type="number"
             id="space-1-input"
+            value={spaceValues?.line}
             placeholder="1"
             onChange={(e) => {
               setSpaceValues((prev) => ({

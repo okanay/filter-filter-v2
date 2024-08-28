@@ -8,6 +8,8 @@ import { Separator } from "@/components/ui/separator";
 
 export const NameInput = () => {
   const setCustomName = useSetAtom(customNameAtom);
+  const customNameValue = useAtomValue(customNameAtom);
+
   const nameOption = useAtomValue(nameOptionAtom);
 
   // prettier-ignore
@@ -22,6 +24,7 @@ export const NameInput = () => {
           <Input
             type="text"
             id="customName"
+            value={customNameValue}
             placeholder="my-file-name etc.."
             onChange={(e) => setCustomName(e.target?.value)}
           />

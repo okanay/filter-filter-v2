@@ -20,6 +20,7 @@ export const CaseOption = () => {
             <RadioGroupItem
               value="case-insensitive"
               id="r1-case"
+              checked={caseSensitive === "case-insensitive"}
               onClick={() => setCaseSensitive("case-insensitive")}
             />
             <Label htmlFor="r1-case">Default</Label>
@@ -28,6 +29,7 @@ export const CaseOption = () => {
             <RadioGroupItem
               value="case-sensitive"
               id="r2-case"
+              checked={caseSensitive === "case-sensitive"}
               onClick={() => setCaseSensitive("case-sensitive")}
             />
             <Label htmlFor="r2-case">Sensitive</Label>

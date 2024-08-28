@@ -8,6 +8,7 @@ import { Separator } from "@/components/ui/separator";
 export const LengthInput = () => {
   const setLength = useSetAtom(customLengthAtom);
   const lengthOption = useAtomValue(lengthOptionAtom);
+  const value = useAtomValue(customLengthAtom);
 
   const inputName = lengthOption === "first-custom" ? "first" : "last";
   // prettier-ignore
@@ -32,6 +33,7 @@ export const LengthInput = () => {
             type="number"
             id="customLength"
             placeholder="0"
+            value={value}
             onChange={(e) => setLength(Number(e.target?.value))}
             className={"-mt-1 max-w-[80px]"}
           />

@@ -20,6 +20,7 @@ export const FilterOption = () => {
             <RadioGroupItem
               value="match one"
               id="r1-filter-type"
+              checked={filterOption === "match one"}
               onClick={() => setFilterOption("match one")}
             />
             <Label htmlFor="r1-filter-type">Match One</Label>
@@ -28,6 +29,7 @@ export const FilterOption = () => {
             <RadioGroupItem
               value="match all"
               id="r2-filter-type"
+              checked={filterOption === "match all"}
               onClick={() => setFilterOption("match all")}
             />
             <Label htmlFor="r2-filter-type">Match All</Label>
@@ -36,6 +38,7 @@ export const FilterOption = () => {
             <RadioGroupItem
               value="none"
               id="r3-filter-type"
+              checked={filterOption === "none"}
               onClick={() => setFilterOption("none")}
             />
             <Label htmlFor="r3-filter-type">Disable</Label>

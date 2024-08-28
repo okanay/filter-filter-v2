@@ -20,6 +20,7 @@ export const CalendarOption = () => {
             <RadioGroupItem
               value="default"
               id="r1-date-option"
+              checked={filterOption === "default"}
               onClick={() => setFilterOption("default")}
             />
             <Label htmlFor="r1-date-option">Default</Label>
@@ -28,6 +29,7 @@ export const CalendarOption = () => {
             <RadioGroupItem
               value="between-one"
               id="r2-date-option"
+              checked={filterOption === "target"}
               onClick={() => setFilterOption("target")}
             />
             <Label htmlFor="r2-date-option">Target Date</Label>
@@ -36,6 +38,7 @@ export const CalendarOption = () => {
             <RadioGroupItem
               value="between-two"
               id="r3-date-option"
+              checked={filterOption === "between"}
               onClick={() => setFilterOption("between")}
             />
             <Label htmlFor="r3-date-option">Between Date</Label>
