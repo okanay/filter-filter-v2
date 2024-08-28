@@ -106,6 +106,8 @@ export const FormSubmitButton = () => {
       // Convert buffer to string array.
       const fileToStringArray = buffer.toString("utf8").split("\n");
 
+      resultFile = LineOption(fileToStringArray, lineOption);
+
       // Filter File With Keywords.
       resultFile = FilterWithKeywords(
         fileToStringArray,
@@ -135,10 +137,6 @@ export const FormSubmitButton = () => {
         });
         return;
       }
-
-      // TODO: IMPROVE LINE OPTION TO ORIGINAL LOG FILE LINE.
-      // Add Line Option.
-      resultFile = LineOption(resultFile, lineOption);
 
       // Add Space Option.
       resultFile = SpaceOption(resultFile, spaceOption, spaceValues!);

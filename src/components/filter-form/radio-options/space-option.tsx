@@ -30,7 +30,7 @@ export const SpaceOption = () => {
               id="r2-space"
               onClick={() => setFilterOption("add-space")}
             />
-            <Label htmlFor="r2-space">Add Space</Label>
+            <Label htmlFor="r2-space">Set Space</Label>
           </div>
         </RadioGroup>
       </InputGroup>

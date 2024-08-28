@@ -30,7 +30,7 @@ export const LineOption = () => {
               id="r2-line"
               onClick={() => setFilterOption("add-line")}
             />
-            <Label htmlFor="r2-line">Add Line Number</Label>
+            <Label htmlFor="r2-line">Show</Label>
           </div>
         </RadioGroup>
       </InputGroup>
