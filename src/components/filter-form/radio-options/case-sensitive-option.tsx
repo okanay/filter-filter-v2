@@ -32,7 +32,7 @@ export const CaseOption = () => {
               checked={caseSensitive === "case-sensitive"}
               onClick={() => setCaseSensitive("case-sensitive")}
             />
-            <Label htmlFor="r2-case">Sensitive</Label>
+            <Label htmlFor="r2-case">In Sensitive</Label>
           </div>
         </RadioGroup>
       </InputGroup>
