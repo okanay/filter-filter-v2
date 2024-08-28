@@ -7,6 +7,7 @@ import { FilterOption } from "@/components/filter-form/radio-options/filter-opti
 import { DatetimeOption } from "@/components/filter-form/radio-options/datetime-option";
 import { SpaceOption } from "@/components/filter-form/radio-options/space-option";
 import { LineOption } from "@/components/filter-form/radio-options/line-option";
+import { CaseOption } from "./radio-options/case-sensitive-option";
 
 export const FormOptions = () => {
   return (
@@ -22,6 +23,7 @@ export const FormOptions = () => {
           <SpaceOption />
         </div>
         <div className="flex w-fit flex-col flex-wrap items-start justify-start gap-6">
+          <CaseOption />
           <LengthOption />
           <NameOption />
           <LineOption />

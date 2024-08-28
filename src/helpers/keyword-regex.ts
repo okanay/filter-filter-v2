@@ -1,3 +1,4 @@
+
 export const keywordsSplitWithRegex = (keywords: string) => {
   let splitKeywords: any = keywords
     .split(" ")
@@ -9,10 +10,8 @@ export const keywordsSplitWithRegex = (keywords: string) => {
       if (!acc.has(curr)) {
         acc.add(curr);
       }
-
       return acc;
     }, new Set());
-
   return splitKeywords.values();
 };
 

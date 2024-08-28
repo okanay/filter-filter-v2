@@ -23,6 +23,7 @@ import {
   spaceOptionAtom,
   spaceValuesAtom,
   statusAtom,
+  caseSensitiveAtom,
   TDateOption,
   TDateTimeOption,
   TDateTimeValue,
@@ -32,6 +33,7 @@ import {
   TLineOption,
   TSpaceOption,
   TSpaceValues,
+  TCaseOption,
 } from "@/atoms/filter-form";
 
 export const FormSubmitButton = () => {
@@ -40,6 +42,7 @@ export const FormSubmitButton = () => {
   const [customName, setCustomName] = useAtom(customNameAtom);
 
   const file = useAtomValue(fileAtom);
+  const caseSensitive = useAtomValue(caseSensitiveAtom);
   const keywords = useAtomValue(keywordAtom);
 
   const nameOption = useAtomValue(nameOptionAtom);
@@ -108,6 +111,7 @@ export const FormSubmitButton = () => {
         fileToStringArray,
         keywords as string,
         filterOption,
+        caseSensitive,
       );
 
       // Filter File With Date.
@@ -197,22 +201,27 @@ function FilterWithKeywords(
   fileToStringArray: string[],
   keywords: string,
   filterOption: TFilterOption,
+  caseSensitivity: TCaseOption,
 ) {
   return fileToStringArray.filter((item) => {
+    const compareFn = (a: string, b: string) =>
+      caseSensitivity === "case-sensitive"
+        ? a.includes(b)
+        : a.toLowerCase().includes(b.toLowerCase());
+
     if (filterOption === "match one") {
       for (const keyToCheck of keywordsSplitWithRegex(keywords!)) {
-        if (item.includes(keyToCheck)) {
+        if (compareFn(item, keyToCheck)) {
           return true;
         }
       }
     } else if (filterOption === "match all") {
       let isMatchAll = true;
       for (const keyToCheck of keywordsSplitWithRegex(keywords!)) {
-        if (!item.includes(keyToCheck)) {
+        if (!compareFn(item, keyToCheck)) {
           return (isMatchAll = false);
         }
       }
-
       return isMatchAll;
     } else return true;
   });

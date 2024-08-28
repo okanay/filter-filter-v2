@@ -11,6 +11,9 @@ export const downloadUrlAtom = atom<undefined | string>(undefined);
 export const keywordAtom = atom<undefined | string>("");
 export const keywordsListAtom = atom<string[]>([]);
 
+export type TCaseOption = "case-sensitive" | "case-insensitive";
+export const caseSensitiveAtom = atom<TCaseOption>("case-sensitive");
+
 export type TNameOption =
   | "default"
   | "custom"
