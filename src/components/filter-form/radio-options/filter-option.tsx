@@ -22,7 +22,7 @@ export const FilterOption = () => {
               id="r1-filter-type"
               onClick={() => setFilterOption("match one")}
             />
-            <Label htmlFor="r1-filter-type">Match One Keyword</Label>
+            <Label htmlFor="r1-filter-type">Match One</Label>
           </div>
           <div className="flex items-center space-x-2">
             <RadioGroupItem
@@ -30,7 +30,7 @@ export const FilterOption = () => {
               id="r2-filter-type"
               onClick={() => setFilterOption("match all")}
             />
-            <Label htmlFor="r2-filter-type">Match All Keywords</Label>
+            <Label htmlFor="r2-filter-type">Match All</Label>
           </div>
           <div className="flex items-center space-x-2">
             <RadioGroupItem
@@ -38,7 +38,7 @@ export const FilterOption = () => {
               id="r3-filter-type"
               onClick={() => setFilterOption("none")}
             />
-            <Label htmlFor="r3-filter-type">Match None</Label>
+            <Label htmlFor="r3-filter-type">Disable</Label>
           </div>
         </RadioGroup>
       </InputGroup>

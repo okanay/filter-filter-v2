@@ -3,10 +3,9 @@ import {
   filterOptionAtom,
   keywordsListAtom,
 } from "@/atoms/filter-form";
+import { Badge } from "@/components/ui/badge";
 import { useAtomValue } from "jotai";
 import { nanoid } from "nanoid";
-import { Badge } from "@/components/ui/badge";
-import { cn } from "@/lib/utils";
 import { twMerge } from "tailwind-merge";
 
 type TProps = React.FC<{
