@@ -25,11 +25,14 @@ export const KeywordsList: TProps = ({ removeHandle }) => {
       {keywordsList.map((key) => (
         <Badge
           className={twMerge(
-            "cursor-pointer py-1.5 transition-all duration-300 hover:scale-90 hover:bg-red-400",
-            caseSensitive === "case-sensitive" &&
+            "cursor-pointer py-1.5 transition-all duration-300 hover:scale-90 hover:bg-red-400 active:bg-red-800",
+            caseSensitive === "case-insensitive" &&
               "border border-blue-950/10 bg-blue-500 shadow shadow-blue-950/10",
             filterType === "match all" &&
               "border border-amber-950/10 bg-amber-500 shadow shadow-amber-950/10",
+            caseSensitive === "case-insensitive" &&
+              filterType === "match all" &&
+              "border border-violet-950/10 bg-violet-500 shadow-violet-950/10",
           )}
           key={nanoid()}
           onClick={() => {
@@ -37,7 +40,7 @@ export const KeywordsList: TProps = ({ removeHandle }) => {
           }}
         >
           <span
-            className={`${caseSensitive === "case-sensitive" ? "lowercase" : "normal-case"}`}
+            className={`${caseSensitive === "case-insensitive" ? "lowercase" : "normal-case"}`}
           >
             {key}
           </span>

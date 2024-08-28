@@ -15,7 +15,7 @@ export const keywordsListAtom = atom<string[]>([]);
 
 export type TCaseOption = "case-sensitive" | "case-insensitive";
 // export const caseSensitiveAtom = atom<TCaseOption>("case-insensitive");
-export const caseSensitiveAtom = atomWithStorage<TCaseOption>("caseSensitive", "case-insensitive");
+export const caseSensitiveAtom = atomWithStorage<TCaseOption>("caseSensitive", "case-sensitive");
 
 export type TNameOption =
   | "default"

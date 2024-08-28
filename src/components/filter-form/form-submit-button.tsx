@@ -203,7 +203,7 @@ function FilterWithKeywords(
 ) {
   return fileToStringArray.filter((item) => {
     const compareFn = (a: string, b: string) =>
-      caseSensitivity === "case-sensitive"
+      caseSensitivity === "case-insensitive"
         ? a.toLowerCase().includes(b.toLowerCase())
         : a.includes(b);
 

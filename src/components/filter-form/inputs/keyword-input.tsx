@@ -25,7 +25,7 @@ export const KeywordInput = () => {
 
     const timeout = setTimeout(() => {
       setKeywordsList([...keywordsSplitWithRegex(keywords)]);
-    }, 100);
+    }, 200);
 
     return () => {
       clearTimeout(timeout);
