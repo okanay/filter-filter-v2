@@ -23,7 +23,7 @@ export const CaseOption = () => {
               checked={caseSensitive === "case-insensitive"}
               onClick={() => setCaseSensitive("case-insensitive")}
             />
-            <Label htmlFor="r1-case">Default</Label>
+            <Label htmlFor="r1-case">Disable</Label>
           </div>
           <div className="flex items-center space-x-2">
             <RadioGroupItem

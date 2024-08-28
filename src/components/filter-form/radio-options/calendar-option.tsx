@@ -23,7 +23,7 @@ export const CalendarOption = () => {
               checked={filterOption === "default"}
               onClick={() => setFilterOption("default")}
             />
-            <Label htmlFor="r1-date-option">Default</Label>
+            <Label htmlFor="r1-date-option">Disable</Label>
           </div>
           <div className="flex items-center space-x-2">
             <RadioGroupItem

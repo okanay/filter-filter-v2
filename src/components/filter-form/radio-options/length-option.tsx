@@ -23,7 +23,7 @@ export const LengthOption = () => {
               checked={filterOption === "all"}
               onClick={() => setFilterOption("all")}
             />
-            <Label htmlFor="r1-length">Default</Label>
+            <Label htmlFor="r1-length">Get All</Label>
           </div>
           <div className="flex items-center space-x-2">
             <RadioGroupItem

@@ -23,7 +23,7 @@ export const LineOption = () => {
               checked={filterOption === "default"}
               onClick={() => setFilterOption("default")}
             />
-            <Label htmlFor="r1-line">Default</Label>
+            <Label htmlFor="r1-line">Disable</Label>
           </div>
           <div className="flex items-center space-x-2">
             <RadioGroupItem
@@ -32,7 +32,7 @@ export const LineOption = () => {
               checked={filterOption === "add-line"}
               onClick={() => setFilterOption("add-line")}
             />
-            <Label htmlFor="r2-line">Show</Label>
+            <Label htmlFor="r2-line">Show Line</Label>
           </div>
         </RadioGroup>
       </InputGroup>
