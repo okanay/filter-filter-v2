@@ -1,8 +1,13 @@
-import { filterOptionAtom, keywordsListAtom } from "@/atoms/filter-form";
+import {
+  caseSensitiveAtom,
+  filterOptionAtom,
+  keywordsListAtom,
+} from "@/atoms/filter-form";
 import { useAtomValue } from "jotai";
 import { nanoid } from "nanoid";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
+import { twMerge } from "tailwind-merge";
 
 type TProps = React.FC<{
   removeHandle: (key: string) => void;
@@ -10,6 +15,7 @@ type TProps = React.FC<{
 export const KeywordsList: TProps = ({ removeHandle }) => {
   const keywordsList = useAtomValue(keywordsListAtom);
   const filterType = useAtomValue(filterOptionAtom);
+  const caseSensitive = useAtomValue(caseSensitiveAtom);
 
   const onBadgeClick = (key: string) => {
     removeHandle(key);
@@ -19,8 +25,10 @@ export const KeywordsList: TProps = ({ removeHandle }) => {
     <div className={"flex max-w-[320px] flex-wrap gap-2"}>
       {keywordsList.map((key) => (
         <Badge
-          className={cn(
+          className={twMerge(
             "cursor-pointer py-1.5 transition-all duration-300 hover:scale-90 hover:bg-red-400",
+            caseSensitive === "case-sensitive" &&
+              "border border-blue-950/10 bg-blue-500 shadow shadow-blue-950/10",
             filterType === "match all" &&
               "border border-amber-950/10 bg-amber-500 shadow shadow-amber-950/10",
           )}
@@ -29,7 +37,11 @@ export const KeywordsList: TProps = ({ removeHandle }) => {
             onBadgeClick(key);
           }}
         >
-          {key}
+          <span
+            className={`${caseSensitive === "case-sensitive" ? "lowercase" : "normal-case"}`}
+          >
+            {key}
+          </span>
         </Badge>
       ))}
     </div>

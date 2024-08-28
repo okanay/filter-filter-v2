@@ -18,17 +18,17 @@ export const CaseOption = () => {
         <RadioGroup name={"case-sensitive"} defaultValue={caseSensitive}>
           <div className="flex items-center space-x-2">
             <RadioGroupItem
-              value="case-sensitive"
+              value="case-insensitive"
               id="r1-case"
-              onClick={() => setCaseSensitive("case-sensitive")}
+              onClick={() => setCaseSensitive("case-insensitive")}
             />
             <Label htmlFor="r1-case">Default</Label>
           </div>
           <div className="flex items-center space-x-2">
             <RadioGroupItem
-              value="case-insensitive"
+              value="case-sensitive"
               id="r2-case"
-              onClick={() => setCaseSensitive("case-insensitive")}
+              onClick={() => setCaseSensitive("case-sensitive")}
             />
             <Label htmlFor="r2-case">Sensitive</Label>
           </div>

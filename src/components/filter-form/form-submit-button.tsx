@@ -206,8 +206,8 @@ function FilterWithKeywords(
   return fileToStringArray.filter((item) => {
     const compareFn = (a: string, b: string) =>
       caseSensitivity === "case-sensitive"
-        ? a.includes(b)
-        : a.toLowerCase().includes(b.toLowerCase());
+        ? a.toLowerCase().includes(b.toLowerCase())
+        : a.includes(b);
 
     if (filterOption === "match one") {
       for (const keyToCheck of keywordsSplitWithRegex(keywords!)) {

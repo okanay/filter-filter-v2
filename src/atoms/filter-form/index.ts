@@ -12,7 +12,7 @@ export const keywordAtom = atom<undefined | string>("");
 export const keywordsListAtom = atom<string[]>([]);
 
 export type TCaseOption = "case-sensitive" | "case-insensitive";
-export const caseSensitiveAtom = atom<TCaseOption>("case-sensitive");
+export const caseSensitiveAtom = atom<TCaseOption>("case-insensitive");
 
 export type TNameOption =
   | "default"
