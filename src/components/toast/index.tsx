@@ -40,7 +40,6 @@ export const ToastManager = () => {
           />
         )}
       </Toaster>
-      ;
     </>
   );
 };
