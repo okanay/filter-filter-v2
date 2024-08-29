@@ -44,17 +44,18 @@ export const NameOption = () => {
             />
             <Label htmlFor="r3-name">Custom</Label>
           </div>
-          <div className="flex items-center space-x-2">
-            <RadioGroupItem
-              value="custom-with-file-name"
-              id="r4-name"
-              checked={filterOption === "custom-with-file-name"}
-              onClick={() => setFilterOption("custom-with-file-name")}
-            />
-            <Label htmlFor="r4-name">Custom With File Name</Label>
-          </div>
         </RadioGroup>
       </InputGroup>
     </div>
   );
 };
+
+// <div className="flex items-center space-x-2">
+// <RadioGroupItem
+// value="custom-with-file-name"
+// id="r4-name"
+// checked={filterOption === "custom-with-file-name"}
+// onClick={() => setFilterOption("custom-with-file-name")}
+// />
+// <Label htmlFor="r4-name">Custom With File Name</Label>
+// </div>
