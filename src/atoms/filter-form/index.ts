@@ -26,6 +26,7 @@ export type TNameOption =
 export const nameOptionAtom = atomWithStorage<TNameOption>("nameOption", "default");
 // export const customNameAtom = atom<undefined | string>("");
 export const customNameAtom = atomWithStorage<undefined | string>("customName", "");
+export const hideNameInput = atomWithStorage<boolean>("hideNameInput", false);
 
 export type TLengthOption =
   | "all"
@@ -37,6 +38,7 @@ export type TLengthOption =
 export const lengthOptionAtom = atomWithStorage<TLengthOption>("lengthOption", "all");
 // export const customLengthAtom = atom<undefined | number>(0);
 export const customLengthAtom = atomWithStorage<undefined | number>("customLength", 1);
+export const hideLengthInput = atomWithStorage<boolean>("hideLengthInput", false);
 
 export type TDateTimeValue = {
   from: {
@@ -78,6 +80,7 @@ export const filterOptionAtom = atomWithStorage<TFilterOption>("filterOption", "
 export type TSpaceOption = "default" | "add-space";
 // export const spaceOptionAtom = atom<TSpaceOption>("default");
 export const spaceOptionAtom = atomWithStorage<TSpaceOption>("spaceOption", "default");
+export const hideSpaceInput = atomWithStorage<boolean>("hideSpaceInput", false);
 
 export type TSpaceValues = { line: number; space: number };
 // export const spaceValuesAtom = atom<TSpaceValues | undefined>({

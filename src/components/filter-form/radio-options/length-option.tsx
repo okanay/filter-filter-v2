@@ -2,15 +2,23 @@ import { InputGroup } from "@/components/filter-form/input-group";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { useAtom } from "jotai/index";
-import { lengthOptionAtom } from "@/atoms/filter-form";
+import { hideLengthInput, lengthOptionAtom } from "@/atoms/filter-form";
 import { OptionHeaderIcon } from "@/components/ui/option-header-icon";
 import { OptionHeader } from "@/components/ui/option-header";
+import { HideButton } from "@/components/ui/hide-button";
 
 export const LengthOption = () => {
   const [filterOption, setFilterOption] = useAtom(lengthOptionAtom);
+  const [hide, setHide] = useAtom(hideLengthInput);
 
   return (
-    <div className={"flex-shrink-0"}>
+    <div className={"relative flex-shrink-0"}>
+      <HideButton
+        hide={hide}
+        onClick={() => {
+          setHide(!hide);
+        }}
+      />
       <InputGroup>
         <OptionHeaderIcon name={"length"}>
           <OptionHeader>Output Log Length.</OptionHeader>

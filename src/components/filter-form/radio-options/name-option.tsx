@@ -2,16 +2,24 @@ import { InputGroup } from "@/components/filter-form/input-group";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { useAtom } from "jotai/index";
-import { nameOptionAtom } from "@/atoms/filter-form";
+import { hideNameInput, nameOptionAtom } from "@/atoms/filter-form";
 import { OptionHeaderIcon } from "@/components/ui/option-header-icon";
 import { OptionHeader } from "@/components/ui/option-header";
 import { useEffect } from "react";
+import { HideButton } from "@/components/ui/hide-button";
 
 export const NameOption = () => {
   const [filterOption, setFilterOption] = useAtom(nameOptionAtom);
+  const [hide, setHide] = useAtom(hideNameInput);
 
   return (
-    <div className={"flex-shrink-0"}>
+    <div className={"relative flex-shrink-0"}>
+      <HideButton
+        hide={hide}
+        onClick={() => {
+          setHide(!hide);
+        }}
+      />
       <InputGroup>
         <OptionHeaderIcon name={"name"}>
           <OptionHeader>Output File Name.</OptionHeader>

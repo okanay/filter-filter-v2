@@ -10,7 +10,7 @@ export const CalendarOption = () => {
   const [filterOption, setFilterOption] = useAtom(dateOptionAtom);
 
   return (
-    <div className={"flex-shrink-0"}>
+    <div className={"relative flex-shrink-0"}>
       <InputGroup>
         <OptionHeaderIcon name={"date"}>
           <OptionHeader>Customize Date.</OptionHeader>

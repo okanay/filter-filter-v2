@@ -1,16 +1,24 @@
 import { InputGroup } from "@/components/filter-form/input-group";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { spaceOptionAtom } from "@/atoms/filter-form";
+import { hideSpaceInput, spaceOptionAtom } from "@/atoms/filter-form";
 import { useAtom } from "jotai/index";
 import { OptionHeaderIcon } from "@/components/ui/option-header-icon";
 import { OptionHeader } from "@/components/ui/option-header";
+import { HideButton } from "@/components/ui/hide-button";
 
 export const SpaceOption = () => {
   const [filterOption, setFilterOption] = useAtom(spaceOptionAtom);
+  const [hide, setHide] = useAtom(hideSpaceInput);
 
   return (
-    <div className={"flex-shrink-0"}>
+    <div className={"relative flex-shrink-0"}>
+      <HideButton
+        hide={hide}
+        onClick={() => {
+          setHide(!hide);
+        }}
+      />
       <InputGroup>
         <OptionHeaderIcon name={"space"}>
           <OptionHeader>Output Space.</OptionHeader>

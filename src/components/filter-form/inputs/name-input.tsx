@@ -3,17 +3,24 @@ import { Input } from "@/components/ui/input";
 import { InputGroup } from "@/components/filter-form/input-group";
 import { useSetAtom } from "jotai/index";
 import { useAtomValue } from "jotai";
-import { customNameAtom, nameOptionAtom } from "@/atoms/filter-form";
+import {
+  customNameAtom,
+  hideNameInput,
+  nameOptionAtom,
+} from "@/atoms/filter-form";
 import { Separator } from "@/components/ui/separator";
 
 export const NameInput = () => {
   const setCustomName = useSetAtom(customNameAtom);
   const customNameValue = useAtomValue(customNameAtom);
+  const hide = useAtomValue(hideNameInput);
 
   const nameOption = useAtomValue(nameOptionAtom);
 
   // prettier-ignore
   const showInput = nameOption === "custom-with-file-name" || nameOption === "custom";
+
+  if (hide) return null;
 
   return (
     showInput && (
