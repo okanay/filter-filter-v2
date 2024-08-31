@@ -8,7 +8,10 @@ export type TStatus = {
 
 export const statusAtom = atom<TStatus>({ type: "initial" });
 export const fileAtom = atom<File | undefined>(undefined);
-export const downloadUrlAtom = atom<undefined | string>(undefined);
+export const downloadUrlAtom = atom<undefined | {
+  fileName: string;
+  url: string;
+}>(undefined);
 
 export const keywordAtom = atom<undefined | string>("");
 export const keywordsListAtom = atom<string[]>([]);

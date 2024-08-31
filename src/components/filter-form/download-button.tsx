@@ -1,15 +1,10 @@
-import {
-  customNameAtom,
-  downloadUrlAtom,
-  statusAtom,
-} from "@/atoms/filter-form";
+import { downloadUrlAtom, statusAtom } from "@/atoms/filter-form";
 import { Button } from "@/components/ui/button";
 import { useAtom } from "jotai";
 
 export const DownloadButton = () => {
   const [status, setStatus] = useAtom(statusAtom);
   const [downloadUrl] = useAtom(downloadUrlAtom);
-  const [fileName] = useAtom(customNameAtom);
 
   const handleOnClick = () => {
     if (status.type === "success") {
@@ -29,8 +24,8 @@ export const DownloadButton = () => {
       }`}
     >
       <a
-        href={downloadUrl}
-        download={fileName}
+        href={downloadUrl?.url}
+        download={downloadUrl?.fileName}
         target="_blank"
         onMouseDown={handleOnClick}
       >

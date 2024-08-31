@@ -116,6 +116,14 @@ export const FormSubmitButton = () => {
         caseSensitive,
       );
 
+      if (resultFile.length === 0) {
+        setStatus({
+          type: "error",
+          message: "Keywords not found in file.",
+        });
+        return;
+      }
+
       // Filter File With Date.
       resultFile = FilterWithDate(
         resultFile,
@@ -124,20 +132,27 @@ export const FormSubmitButton = () => {
         customDates as TDateValues,
       );
 
-      // Filter File With Time.
-      resultFile = FilterWithTime(resultFile, dateTimeValue, dateTimeOption);
-
-      // Filter File With Length.
-      resultFile = FilterWithLength(resultFile, lengthOption, customLength!);
-
       if (resultFile.length === 0) {
         setStatus({
           type: "error",
-          message: "There is no row return. Please change your options.",
+          message: "Date not found in file.",
         });
         return;
       }
 
+      // Filter File With Time.
+      resultFile = FilterWithTime(resultFile, dateTimeValue, dateTimeOption);
+
+      if (resultFile.length === 0) {
+        setStatus({
+          type: "error",
+          message: "Time not found in file.",
+        });
+        return;
+      }
+
+      // Filter File With Length.
+      resultFile = FilterWithLength(resultFile, lengthOption, customLength!);
       // Add Space Option.
       resultFile = SpaceOption(resultFile, spaceOption, spaceValues!);
 
@@ -150,8 +165,13 @@ export const FormSubmitButton = () => {
       const url = window.URL.createObjectURL(filteredFileBuffer);
 
       // Set Custom Name and Download Url.
-      setCustomName(createFileName(file!.name, nameOption, customName!));
-      setDownloadUrl(url);
+      const fileName = createFileName(file!.name, nameOption, customName!);
+
+      setDownloadUrl({
+        fileName,
+        url,
+      });
+
       setStatus({ type: "success" });
     } catch (e: any) {
       setStatus({
@@ -347,7 +367,7 @@ function SpaceOption(
 
     const spaceCount = () => {
       let spaceValue = "";
-      for (let i = 1; i < space; i++) {
+      for (let i = 1; i < space + 2; i++) {
         spaceValue += "\n";
       }
 
